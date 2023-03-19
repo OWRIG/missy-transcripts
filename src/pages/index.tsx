@@ -5,7 +5,7 @@ import Head from "next/head";
 
 const Home: NextPage = () => {
 	const router = useRouter();
-	const [input, setInput] = useState<string>("徐昊晨");
+	const [input, setInput] = useState<string>("");
 	const onClick = () => {
 		void router.push({
 			pathname: "/grades",
