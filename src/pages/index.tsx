@@ -21,7 +21,7 @@ const Home: NextPage = () => {
 			<div className="hero min-h-screen bg-base-200">
 				<div className="hero-content text-center">
 					<div className="max-w-md">
-						<h1 className="text-5xl font-bold">{`For Miss Yang's students`}</h1>
+						<p className="text-2xl lg:text-4xl font-bold">{`For Miss Yang's students`}</p>
 						<input
 							type="text"
 							placeholder="请完整输入你的名字"
@@ -29,6 +29,7 @@ const Home: NextPage = () => {
 							value={input}
 							onChange={(e) => setInput(e.target.value)}
 						/>
+						<p className="m-2" />
 						<button
 							className="btn btn-primary"
 							onClick={onClick}

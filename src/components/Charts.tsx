@@ -5,14 +5,14 @@ import data from "../utils/data";
 interface IStuData {
 	"姓  名": string;
 	"性  别": string;
-	摸底: number;
-	Unit1: number;
-	"9校联考": number;
-	"2021阳光测验": number | string;
-	期中: number;
-	期末: number;
-	"2023.3月考（120）": number | string;
-	"7BU3": number;
+	摸底?: number | string | undefined;
+	Unit1?: number | string | undefined;
+	"9校联考"?: number | string | undefined;
+	"2021阳光测验"?: number | string | undefined;
+	期中?: number | string | undefined;
+	期末?: number | string | undefined;
+	"2023.3月考（120）"?: number | string | undefined;
+	"7BU3"?: number | string | undefined;
 }
 
 interface Props {
@@ -21,13 +21,21 @@ interface Props {
 
 const Charts = (props: Props) => {
 	const { stuData } = props;
-	const medianData = Object.values(data[data.length - 2] as IStuData).splice(2);
-	const averageData = Object.values(data[data.length - 1] as IStuData).splice(
-		2,
-	);
+	if (!stuData) return null;
+	const idx = data.findIndex((item) => item["姓  名"] === stuData["姓  名"]);
+	const cls = idx > 43 ? 1 : 0;
+	console.log(cls);
+	const medianData = Object.values(
+		data[data.length - 2 - cls * 2] as IStuData,
+	).splice(2);
+	const averageData = Object.values(
+		data[data.length - 1 - cls * 2] as IStuData,
+	).splice(2);
 
-	const xAxisOptions = stuData ? Object.keys(stuData).splice(2) : [];
-	const grades = stuData ? Object.values(stuData).splice(2) : [];
+	console.log(medianData, averageData, stuData);
+
+	const xAxisOptions = Object.keys(stuData).splice(2);
+	const grades = Object.values(stuData).splice(2);
 
 	const option = {
 		xAxis: {
