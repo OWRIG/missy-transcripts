@@ -23,7 +23,7 @@ const Charts = (props: Props) => {
 	const { stuData } = props;
 	if (!stuData) return null;
 	const idx = data.findIndex((item) => item["姓  名"] === stuData["姓  名"]);
-	const cls = idx > 43 ? 1 : 0;
+	const cls = idx < 43 ? 1 : 0;
 	console.log(cls);
 	const medianData = Object.values(
 		data[data.length - 2 - cls * 2] as IStuData,
