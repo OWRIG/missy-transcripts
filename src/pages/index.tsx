@@ -15,14 +15,13 @@ const Home: NextPage = () => {
 	return (
 		<>
 			<Head>
-				<title>云龙学生数据展示</title>
-				<meta name="description" content="云龙学生数据展示" />
-				<link rel="icon" href="/favicon.ico" />
+				<title>英语成绩单</title>
+				<meta name="description" content="英语成绩单" />
 			</Head>
 			<div className="hero min-h-screen bg-base-200">
 				<div className="hero-content text-center">
 					<div className="max-w-md">
-						<h1 className="text-5xl font-bold">Hi</h1>
+						<h1 className="text-5xl font-bold">{`For Miss Yang's students`}</h1>
 						<input
 							type="text"
 							placeholder="请完整输入你的名字"
