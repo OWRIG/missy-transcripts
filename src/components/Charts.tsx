@@ -21,11 +21,13 @@ interface Props {
 
 const Charts = (props: Props) => {
 	const { stuData } = props;
-	const medianData = Object.values(data[data.length - 2]).splice(2);
-	const averageData = Object.values(data[data.length - 1]).splice(2);
+	const medianData = Object.values(data[data.length - 2] as IStuData).splice(2);
+	const averageData = Object.values(data[data.length - 1] as IStuData).splice(
+		2,
+	);
 
-	const xAxisOptions = Object.keys(stuData).splice(2);
-	const grades = Object.values(stuData).splice(2);
+	const xAxisOptions = stuData ? Object.keys(stuData).splice(2) : [];
+	const grades = stuData ? Object.values(stuData).splice(2) : [];
 
 	const option = {
 		xAxis: {
