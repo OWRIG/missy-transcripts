@@ -23,16 +23,13 @@ const Charts = (props: Props) => {
 	const { stuData } = props;
 	if (!stuData) return null;
 	const idx = data.findIndex((item) => item["姓  名"] === stuData["姓  名"]);
-	const cls = idx < 43 ? 1 : 0;
-	console.log(cls);
+	const cls = idx < 42 ? 1 : 0;
 	const medianData = Object.values(
 		data[data.length - 2 - cls * 2] as IStuData,
 	).splice(2);
 	const averageData = Object.values(
 		data[data.length - 1 - cls * 2] as IStuData,
 	).splice(2);
-
-	console.log(medianData, averageData, stuData);
 
 	const xAxisOptions = Object.keys(stuData).splice(2);
 	const grades = Object.values(stuData).splice(2);
